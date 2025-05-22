@@ -1,0 +1,105 @@
+.prof{
+    height: 100%;
+    left: 5%;
+    position: absolute;
+    top: 20%;
+    gap: 1%;
+    margin: auto;
+    display: flex;
+    width: 95%;
+}
+.card1{
+    gap: 25px;
+    display: flex;
+    position: relative;
+    width: 25%;
+    flex-direction: column;
+    animation: leftcard 1.5s;
+}
+@keyframes leftcard{
+    from{
+        transform: translateX(-100%);
+        opacity: 0%;
+    }
+    to{
+        transform: translateX(0%);
+        opacity: 100%;
+    }
+}
+.card1top{
+     background-color: white;
+     gap: 2%;
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid lightgray;
+    padding-left: 5%;
+    align-items: center;
+}
+.card1bot{
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid lightgray;
+    padding-left: 5%;
+}
+.card2{
+    height: 60vh;
+    overflow: scroll;
+    padding: 25px;
+    border-radius: 5px;
+    border: 1px solid lightgray;
+    background-color: white;
+    width: 70%;
+    position: relative;
+    animation: rightcard 1.5s;
+}
+@keyframes rightcard{
+    from{
+        opacity: 0%;
+    }
+    to{
+        opacity: 100%;
+    }
+}
+.profcover{
+     background-color: #f1f3f6
+}
+.items{
+    gap: 3%;
+    display: flex;
+    align-items: center;
+}
+.logout:hover,.delete:hover,.items:hover{
+    cursor: pointer;
+}
+
+.box21{
+     background: aliceblue;
+    margin-bottom: 4%;
+    padding: 2%;
+    flex-direction: row;
+    display: flex;
+    border: 0.2px solid grey;
+    border-radius: 10px;
+    width: 100%;
+    align-items: center;
+}
+
+.img2 img{
+    position: relative;
+    width: 110px;
+    height: 110px;
+     border-radius: 5px;
+    object-fit: cover;
+}
+.selling{
+    display: flex;
+}
+.leftsell, .rightsell{
+    justify-content: center;
+    display: flex;
+    position: relative;
+    width: 50%;
+}

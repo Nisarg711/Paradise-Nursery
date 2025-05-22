@@ -1,0 +1,408 @@
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Caveat:wght@400..700&family=Rajdhani:wght@300;400;500;600;700&family=Ubuntu+Sans+Mono:ital,wght@0,400..700;1,400..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Caveat:wght@400..700&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Rajdhani:wght@300;400;500;600;700&family=Ubuntu+Sans+Mono:ital,wght@0,400..700;1,400..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Agbalumo&family=Caveat:wght@400..700&family=Cookie&family=Lilita+One&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Rajdhani:wght@300;400;500;600;700&family=Rouge+Script&family=Ubuntu+Sans+Mono:ital,wght@0,400..700;1,400..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Agbalumo&family=Caveat:wght@400..700&family=Cookie&family=DynaPuff:wght@400..700&family=Lilita+One&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Rajdhani:wght@300;400;500;600;700&family=Rouge+Script&family=Ubuntu+Sans+Mono:ital,wght@0,400..700;1,400..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Agbalumo&family=Caveat:wght@400..700&family=Cookie&family=DM+Serif+Text:ital@0;1&family=DynaPuff:wght@400..700&family=Lilita+One&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Poetsen+One&family=Rajdhani:wght@300;400;500;600;700&family=Rouge+Script&family=Ubuntu+Sans+Mono:ital,wght@0,400..700;1,400..700&family=Zeyada&display=swap');
+*{
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.btn2{
+    justify-content: center;
+}
+.bg{
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    position: absolute;
+}
+.white{
+    color: white;
+}
+.flex{
+    display: flex;
+    justify-content: center;
+}
+
+.head{
+    margin: auto;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    font-size: 50px;
+}
+.left, .righti{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.left{
+    position: relative;
+}
+.headi{
+    color: white;
+}
+.one{
+    position: relative;
+    right: 20%;
+}
+.quote{
+    top: 20px;
+    font-size: 30px;
+    position: relative;
+    right: 20%;
+    font-family: "Rouge Script", serif;
+}
+.conten2{
+    top: 5%;
+    position: relative;
+    right: 20%;
+    font-family: "Agbalumo", system-ui;
+  font-weight: 400;
+  font-style: normal;
+}
+.conten{
+    word-spacing: 10px;
+    font-size: 25px;
+     font-family: "Agbalumo", system-ui;
+     top: 5%;
+}
+.head{
+   font-family: "Abril Fatface", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+.btn:hover{
+    scale: 1.1;
+    cursor: pointer;
+}
+.links{
+    top: 8px;
+    position: absolute;
+    margin-right: 40%;
+    margin-left: 35%;
+    display: flex;
+    justify-content: center;
+    width: 33%;
+    /* margin: auto; */
+    gap: 20px;
+}
+ .links a{
+    color: white;
+    text-decoration: none;
+    font-size: 20px;
+}
+.links a:hover{
+    text-decoration: underline;
+    color: orange;
+    scale: 1.1;
+}
+.log:hover{
+    cursor: pointer;
+}
+.logo2{
+flex-direction: column;
+left: 92%;
+position: relative;
+display: flex;
+gap: 5px;
+}
+.list{
+    position: relative;
+    top: 25px;
+    display: grid;
+    grid-template-columns: 0fr 0fr 0fr 0fr;
+    gap: 30px;
+    justify-content: center;
+}
+.box{
+    background: white;
+    flex-direction: column;
+    justify-content: center;
+    display: flex;
+    border: 0.2px solid grey;
+    border-radius: 10px;
+    height: 360px;
+    width: 250px;
+}
+
+.box img{
+    right: 4%;
+    border-radius: 5px;
+    margin-top: 20px;
+    position: relative;
+    object-fit: cover;
+    width: 200px;
+    height: 220px;
+  
+}
+.pic{
+    display: flex;
+    justify-content: center;
+}
+.con{
+background: aliceblue;
+}
+.content2{
+    margin: auto;
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    margin-top: 5%;
+}
+.price{
+ color: #f09191
+}
+.addbtn{
+    width: 100%;
+}
+.add{
+    position: relative;
+}
+.heading3{
+      font-family: "DynaPuff", system-ui;
+  font-optical-sizing: auto;
+  font-variation-settings:
+    "wdth" 100;
+}
+
+.cnt{
+    position: absolute;
+    top: 15%;
+    right: 17px;
+}
+.lists{
+    height: 80vh;
+    overflow: scroll;
+    background-color: aliceblue;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 30%;
+    width: 100%;
+}
+.box2{
+    background: white;
+    margin-bottom: 35px;
+    padding-left: 3%;
+    flex-direction: row;
+    display: flex;
+    border: 0.2px solid grey;
+    border-radius: 10px;
+    height: 200px;
+    width: 100%;
+    align-items: center;
+    animation: box2ani 2.5s;
+}
+@keyframes box2ani{
+    from{
+        transform: translateX(10%);
+        opacity: 0%;
+    }
+    to{
+         transform: translateX(0%);
+        opacity: 100%;
+    }
+}
+.img img{
+    position: relative;
+    width: 130px;
+    height: 140px;
+     border-radius: 5px;
+    object-fit: cover;
+}
+.content3{
+    flex-direction: column;
+    display: flex;
+    font-size: 20px;
+    position: relative;
+    left: 20px;
+    align-items: center;
+    justify-content: center;
+}
+.lefti{
+    position: relative;
+    width: 50%;
+    display: flex;
+}
+.right{
+    align-items: center;
+    justify-content: flex-end;
+    display: flex;
+    width: 50%;
+}
+.amount{
+    display: inline-block;
+    position: absolute;
+    right: 2%;
+    text-align: center;
+}
+.checkout{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    padding: 3%;
+    position: relative;
+    bottom: 20%;
+    width: 100%;
+}
+.check{
+    width: 100%;
+}
+.checkbtn{
+    justify-content: center;
+    width: 100%;
+    border-radius: 5px;
+}
+.btn2{
+    height: 40px;
+    background-color: #f0864e;
+    color: white;
+    border: none;
+}
+.checkbtn{
+    height: 40px;
+    background-color: #f0864e;
+    color: white;
+    border: none;
+}
+.checkbtn:hover{
+    opacity: 80%;
+    scale: 1.02;
+}
+.cont{
+     position: relative;
+    top: 10px;
+}
+
+.loading {
+  display: flex; /* or block */
+  justify-content: center;
+  align-items: center;
+}
+.leftani{
+    animation: leftappearanimation 1.5s;
+}
+.leftani2{
+    animation: leftappearanimation2 2s;
+}
+.rightani{
+    animation: rightappearanimation 1.5s;
+}
+.rightani2{
+    animation: rightappearanimation2 2s;
+}
+@keyframes leftappearanimation{
+    from{
+        transform: translateX(-100%);
+        opacity: 0%;
+    }
+    to{
+        transform: translateX(0%);
+        opacity: 100%;
+    }
+}
+@keyframes leftappearanimation2{
+    from{
+        transform: translateX(-10%);
+        opacity: 0%;
+    }
+    to{
+        transform: translateX(0%);
+        opacity: 100%;
+    }
+}
+@keyframes rightappearanimation{
+    from{
+        transform: translateX(100%);
+        opacity: 0%;
+    }
+    to{
+        transform: translateX(0%);
+        opacity: 100%;
+    }
+}
+
+@keyframes rightappearanimation2{
+    from{
+        transform: translateX(10%);
+        opacity: 0%;
+    }
+    to{
+        transform: translateX(0%);
+        opacity: 100%;
+    }
+}
+.hori{
+    background: aquamarine;
+    height: 2px;
+    border: none;
+    width: 100%;
+    margin: 0rem 0px;
+}
+
+.homeheading{
+    position: absolute;
+    top: 20%;
+}
+.homecontent{
+    position: absolute;
+    top: 30%;
+    font-size: 30px;
+}
+
+.homeheading h1{
+    color: wheat;
+    font-size: 50px;
+  font-family: "Zeyada", cursive;
+  font-weight: 400;
+  font-style: normal;
+  animation: homehead 1.5s;
+}
+@keyframes homehead{
+    from{
+        opacity: 0%;
+    }
+    to{
+        opacity: 100%;
+    }
+}
+
+.homecontent p{
+    font-size: 25px;
+    font-family: "Caveat", cursive;
+  font-optical-sizing: auto;
+   animation: homecontent 2s;
+}
+@keyframes homecontent{
+    from{
+        opacity: 0%;
+        transform: translateY(100%);
+    }
+    to{
+        opacity: 100%;
+        transform: translateY(0%)
+    }
+}
+.homebtn{
+    justify-content: center;
+    display: flex;
+    position: relative;
+    top: 80%;
+}
+
+.homepage{
+    left: 5%;
+    width: 50%;
+    position: absolute;
+    height: 100vh;
+}
+.homebtn button{
+     animation: homecontent 2s;
+}
+.homebtn button:hover{
+    cursor: pointer;
+    background:gray;
+}
