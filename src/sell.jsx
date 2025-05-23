@@ -165,7 +165,7 @@ theme: "light",
       </div>
                   <div className="bar">
              <div className="imagetag">
-                            <img  ref={ref} className={`plant ${visible?'visible2':''}`} src="./public/background/sell1.jpg" alt="" />
+                            <img  ref={ref} className={`plant ${visible?'visible2':''}`} src="./background/sell1.jpg" alt="" />
              </div>
 
                  <div ref={ref} className={`card sidebar ${visible ? 'visible' : ''}`}>

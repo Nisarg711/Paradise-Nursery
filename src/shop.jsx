@@ -194,7 +194,7 @@ theme={'light'}
     src={wishurl}
     onClick={(e)=>{handlewish(e,ele)}}
     trigger="hover"
-    style={{height:'25px',width:'25px',left:'-10px'}}>
+    style={{left:'-10px'}}>
 </lord-icon>
 <img src={"data:image/png;base64," + ele.data} alt="" /></div>
             <div className="content2">

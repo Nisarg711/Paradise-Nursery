@@ -40,7 +40,7 @@ const nav = () => {
     <a href="">Orders</a>
     <a href="">Offers</a>
 </div>
-<div className="logo" style={{position:"absolute",right:"1%",top:"8px"}}>
+<div className="logo">
        
     <lord-icon className="log"
     src="https://cdn.lordicon.com/kwttodke.json"
@@ -75,7 +75,7 @@ const nav = () => {
   <lord-icon className="log"
     src="https://cdn.lordicon.com/hhljfoaj.json"
     trigger="hover"
-    style={{height:"35px",background:"white",borderRadius:"100%"}} onClick={()=>{
+    style={{height:"30px",background:"white",borderRadius:"100%"}} onClick={()=>{
 
         handleaccount();
     }
@@ -89,7 +89,7 @@ const nav = () => {
  colors="primary:#121331,secondary:#e8b730,tertiary:#66d7ee"
     src="https://cdn.lordicon.com/hwpohgdf.json"
     trigger="hover"
-    style={{height:"45px", width:"45px"}}>
+    style={{height:"40px", width:"40px"}}>
 </lord-icon>
 <p className='cnt'>{cart}</p>
     </div>

@@ -17,7 +17,7 @@ const home = () => {
                 <p> At Paradise Nursery, we believe in nurturing nature and helping you create your own green paradise—right at home. Explore our selection and let your garden dreams take root!
 </p>
  <div className="homebtn">
-                <button style={{width:'100%',background:'black'}} type="button" class="btn btn-success" onClick={()=>{
+                <button style={{width:'100%',background:'black'}} type="button" class="btn btn-success homepagebtn" onClick={()=>{
                 window.location.href="/shop"
                 }}>Get Started</button>
             </div>
