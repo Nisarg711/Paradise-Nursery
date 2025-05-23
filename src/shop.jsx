@@ -1,6 +1,6 @@
 import React, { useEffect, useState,useContext,useRef} from 'react'
 import {db,auth } from "./backend/firebase"
-import { ToastContainer, toast } from 'react-toastify';
+import { Bounce, ToastContainer, toast } from 'react-toastify';
 import { count, doc, setDoc } from "firebase/firestore"; 
 import { DotLottieReact } from '@lottiefiles/dotlottie-react';
 import { getDocs,collection,arrayUnion,arrayRemove } from 'firebase/firestore';
@@ -45,15 +45,30 @@ async function delay(d) {
 }
 return -1;
 }
- const handleorder=(idx)=>{
+
+ const handleorder=async (idx)=>{
+  setTimeout(() => {
+    toast.success('Item added into the cart!!!', {
+      position: "top-right",
+      autoClose: 1500,
+      hideProgressBar: false,
+      closeOnClick: false,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+    });
+  }, 0);
   let arr=[];
 setplants(()=>{
+  
   arr=[...plants];
   let cnt=localStorage.getItem("cart")?parseInt(localStorage.getItem("cart")):0;
   
     const ret=find(arr[idx]);
     if(ret==-1)
     {
+      
     setorderd([...ordered,arr[idx]]);
     localStorage.setItem("ordered",JSON.stringify([...ordered,arr[idx]]));
     cnt++;
@@ -66,17 +81,6 @@ setplants(()=>{
   localStorage.setItem("cart",cnt);
   return arr;
 })
-  toast.success('Item Added to the Cart!!!', {
-position: "top-center",
-autoClose: 1500,
-hideProgressBar: false,
-closeOnClick: false,
-pauseOnHover: true,
-draggable: true,
-progress: undefined,
-theme: "light",
-
-});
  }
 
  useEffect(()=>{
@@ -105,6 +109,18 @@ async function handlewish(e,ele){
   }
 if(e.target.src==="https://cdn.lordicon.com/nvsfzbop.json")
 {
+  setTimeout(() => {
+    toast.success('Item added to the wishlist!!', {
+      position: "top-right",
+      autoClose: 1500,
+      hideProgressBar: false,
+      closeOnClick: false,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+    });
+  }, 0);
 
   e.target.src="https://cdn.lordicon.com/ewmfucya.json";
   setwishlist([...wishlist,ele]);
@@ -113,29 +129,11 @@ if(e.target.src==="https://cdn.lordicon.com/nvsfzbop.json")
     wishlist:[...wishlist,ele]
   });
 
-   toast('Item Added to the Wishlist!!!', {
-position: "top-right",
-autoClose: 1500,
-hideProgressBar: false,
-closeOnClick: false,
-pauseOnHover: true,
-draggable: true,
-progress: undefined,
-theme: "light",
-
-});
+ 
 
 }
 else
 {
-  e.target.src="https://cdn.lordicon.com/nvsfzbop.json"
-   let arr=wishlist.filter((element)=>{
-    return element!==ele;
-  })
-    await setDoc(doc(db,"wishlist",usr.uid),{
-    wishlist:arr
-  });
- setwishlist(arr);
   toast('Item removed from the Wishlist!!!', {
 position:"top-right",
 autoClose: 1500,
@@ -145,8 +143,16 @@ pauseOnHover: true,
 draggable: true,
 progress: undefined,
 theme: "light",
-
 });
+
+  e.target.src="https://cdn.lordicon.com/nvsfzbop.json"
+   let arr=wishlist.filter((element)=>{
+    return element!==ele;
+  })
+    await setDoc(doc(db,"wishlist",usr.uid),{
+    wishlist:arr
+  });
+ setwishlist(arr);
  } 
 }
 
@@ -157,7 +163,7 @@ useEffect(()=>{
   return (
     
     <>
-    <ToastContainer
+<ToastContainer
 position="top-right"
 autoClose={1500}
 hideProgressBar={false}
@@ -167,7 +173,8 @@ rtl={false}
 pauseOnFocusLoss
 draggable
 pauseOnHover
-theme={'light'}
+theme="light"
+transition="Bounce"
 />
       <div className="shoppage" style={{height:'100vh'}}>
 
@@ -208,7 +215,9 @@ theme={'light'}
 
               </div>
               <div className="add">
-                <button type="button" onClick={()=>{handleorder(idx)}} className="addbtn btn btn-danger">Add to cart</button>
+                <button type="button" onClick={()=>{
+                  handleorder(idx)
+}} className="addbtn btn btn-danger">Add to cart</button>
               </div>
             </div>
           </div>
