@@ -103,7 +103,7 @@ theme: "light",
       <div className="sellpage">
 
  
-       <img src="./public/background/sell8.jpg" alt="" className='bg' />
+       <img src="./background/sell8.jpg" alt="" className='bg' />
       <div className="seller">
         <h1 className='leftani2'>Let Your Greens Grow Beyond Your Garden!!</h1>
         <p className='intro rightani2'>If you have healthy, home-grown plants or cuttings that you no longer need, Paradise Nursery offers you a wonderful opportunity to pass them on to someone who will care for them just as much as you have. Whether you're a passionate gardener with a balcony full of propagated saplings or someone who simply has a few extra pots to spare, our platform allows you to share your love for plants while making a little extra from your green hobby.</p>

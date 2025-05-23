@@ -6,7 +6,7 @@ const home = () => {
   return (
     <div className='homecover' style={{height:'100vh'}}>
 
-        <img className='bg' src="../public/background/new3.jpeg" alt=""  />
+        <img className='bg' src="./background/new3.jpeg" alt=""  />
             <div className='homepage'>
         <div className="homeheading">
           <h1>Welcome To Paradise Nursery!!</h1>
