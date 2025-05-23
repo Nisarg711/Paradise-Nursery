@@ -80,14 +80,14 @@ to{
     width: 100%;
     height: 50px;
 }
-.options{
+.options, .options2{
     display: flex;
     flex-direction: row;
     position: relative;
     width: 100%;
     align-items: center;
 }
-.create{
+.create, .create2{
     text-decoration: underline;
     position: absolute;
     right: 0px;
@@ -108,3 +108,43 @@ to{
     position: relative;
     width: 100%;
  }
+@media screen and (max-width:550px)
+{
+    .logincard{
+        font-size: 10px;
+    }
+    .logincard h3{
+        font-size: 15px;
+    }
+    .inp input{
+        height: 35px;
+    }
+    .inp{
+        height: 45px;
+    }
+}
+@media screen and (max-width:480px)
+{
+    .options{
+        flex-direction: column;
+    }
+    .create{
+        position: relative;
+    }
+    .signin button{
+        height: 25px;
+        margin-bottom: 5px;
+    }
+    .signin{
+            width: 100%;
+    }
+}
+@media screen and (max-width:1000px){
+    .options2{
+        flex-direction: column;
+    }
+    .create2{
+        top: 5px;
+        position: relative;
+    }
+}

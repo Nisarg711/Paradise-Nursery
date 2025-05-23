@@ -77,6 +77,10 @@
     scale: 1.1;
     cursor: pointer;
 }
+.btn dotlottie-player{
+    height: 35px;
+    width: 35px;
+}
 .links{
     top: 8px;
     position: absolute;
@@ -173,9 +177,9 @@ background: aliceblue;
 }
 
 .cnt{
-    position: absolute;
-    top: 15%;
-    right: 17px;
+position: absolute;
+    top: 11%;
+    right: 13px;
 }
 .lists{
     height: 80vh;
@@ -579,4 +583,24 @@ background: aliceblue;
         height: 70px;
         object-fit: cover;
        }
+}
+
+@media screen and (max-width:575px){
+    .img img{
+        height: 110px;
+        width: 110px;
+    }
+    .box2{
+        height: 145px;
+        font-size: 15px;
+    }
+    .content3{
+        font-size: 15px;
+    }
+}
+@media screen and (max-width:380px){
+    .btn dotlottie-player{
+    height: 25px;
+    width: 25px;
+}
 }

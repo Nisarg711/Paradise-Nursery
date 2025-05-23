@@ -49,7 +49,11 @@ align-items: center;
 @media screen and (max-width:550px)
 {
     .foottop{
+            font-size: 10px;
         grid-template-columns: 1fr 1fr;
+    }
+    .footbot{
+        font-size: 15px;
     }
 }
 
@@ -58,4 +62,8 @@ align-items: center;
     .foottop{
         grid-template-columns: 1fr;
     }
+}
+.foothead h4{
+        font-family: "Caveat", cursive;
+  font-optical-sizing: auto;
 }

@@ -153,3 +153,67 @@
 .sellbtn{
   animation: vertical 2s;
 }
+
+@media screen and (max-width:1245px){
+  .intro, .sidebar>p{
+    font-size: 13px;
+  }
+  .visible2{
+    height: 250px;
+    width: 250px;
+  }
+  
+}
+@media screen and (max-width:750px){
+
+  .visible2{
+    height: 220px;
+    width: 220px;
+  }
+  .bar{
+    top: 130%;
+    height: 45%;
+  }
+  
+}
+ @media screen and (max-width:750px){
+
+  .visible2{
+        height: 190px;
+        width: 190px;
+  }
+  
+}
+ @media screen and (max-width:540px){
+
+  .visible2{
+        height: 160px;
+        width: 160px;
+  }
+  .bar{
+
+    flex-direction: column;
+  }
+  .imagetag{
+    width: 100%;
+    justify-content: center;
+  }
+  .sidebar{
+    top: 20%;
+    width: 100%;
+  }
+  .seller{
+    width: 70%;
+  }
+  
+}
+
+ @media screen and (max-width:450px){
+
+  .bar{
+    height: 70%;
+    
+  }
+
+  
+}

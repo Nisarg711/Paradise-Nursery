@@ -42,7 +42,9 @@ const nav = () => {
 </div>
 <div className="logo">
        
-    <lord-icon className="log"
+    <lord-icon className="log" onClick={()=>{
+        window.open("https://www.facebook.com/",'_blank');
+    }}
     src="https://cdn.lordicon.com/kwttodke.json"
     trigger="hover"
      style={{height:"20px"}}>
@@ -50,23 +52,33 @@ const nav = () => {
 <lord-icon className="log"
     src="https://cdn.lordicon.com/yajmsxjh.json"
     trigger="hover"
-    style={{height:"25px"}}>
+    style={{height:"25px"}}
+    >
 </lord-icon>
 <lord-icon className="log"
     src="https://cdn.lordicon.com/wgtaryar.json"
     trigger="hover"
-    style={{height:"20px"}}>
+    style={{height:"20px"}}
+    onClick={()=>{
+        window.open("https://www.instagram.com/nisarg71105/",'_blank');
+    }}>
 </lord-icon>
 <lord-icon className="log"
     src="https://cdn.lordicon.com/dbcganmh.json"
     trigger="hover"
-    style={{height:"20px"}}>
+    style={{height:"20px"}}
+    onClick={()=>{
+        window.open("https://www.youtube.com/",'_blank');
+    }}>
 </lord-icon>
 
 <lord-icon
     src="https://cdn.lordicon.com/fgctxlnd.json"
     trigger="hover"
-    style={{height:"20px"}}>
+    style={{height:"20px"}}
+      onClick={()=>{
+        window.open("https://www.linkedin.com/in/nisarg-bhatia-721b18321/",'_blank');
+    }}>
 </lord-icon>
 </div>
 <hr className='hori' style={{width:"100%",margin:"0rem 0"}}/>

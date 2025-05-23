@@ -221,7 +221,7 @@ Sell a Plant
                   <div className="img2">
                     <img src={"data:image/png;base64," + ele.data} alt="" />
                   </div>
-                  <div className="content3">
+                  <div className="content23">
                     <div className="name"><p>{ele.name}</p></div>
                     <div className="price"><p>Price: ${ele.price}</p></div>
                     <div className="qtypurchased"><p>Qty: {ele.qty}</p></div>

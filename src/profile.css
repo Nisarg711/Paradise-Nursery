@@ -8,6 +8,15 @@
     display: flex;
     width: 95%;
 }
+.content23{
+        flex-direction: column;
+    display: flex;
+    font-size: 20px;
+    position: relative;
+    left: 20px;
+    align-items: center;
+    justify-content: center;
+}
 .card1{
     gap: 25px;
     display: flex;
@@ -87,6 +96,10 @@
     align-items: center;
 }
 
+.img2{
+    display: flex;
+    align-items: center;
+}
 .img2 img{
     position: relative;
     width: 110px;
@@ -102,4 +115,51 @@
     display: flex;
     position: relative;
     width: 50%;
+}
+@media screen and (max-width:720px){
+    .card1bot{
+        font-size: 10px;
+    }
+}
+
+@media screen and (max-width:510px){
+    .card1{
+        width: 35%;
+    }
+    .card2{
+        width: 60%;
+        font-size: 13px;
+    }
+}
+
+
+@media screen and (max-width:615px){
+    .img2 img{
+        height: 80px;
+        width: 80px;
+    }
+.content23{
+    font-size: 15px;
+}
+.content23 p{
+    margin-bottom: 0rem;
+}
+}
+
+@media screen and (max-width:410px){
+    .prof{
+        flex-direction: column;
+        top: 12%;
+    }
+    .card1{
+        width: 85%;
+    }
+    .card2{
+        width: 85%;
+    }
+      .img2 img{
+        height: 60px;
+        width: 60px;
+    }
+
 }

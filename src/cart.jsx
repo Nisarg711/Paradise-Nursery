@@ -168,7 +168,7 @@ theme: "light",
                     {/* <Select  options={options}  Value={ele.qty} onChange={(e)=>{qtychange(idx,e)}} /> */}
                   </div>
                   <div className="btn" onClick={()=>{handledelete(ele)}}>
-                    <dotlottie-player src="https://lottie.host/e507fe75-1154-4f7a-8bac-fb19f3a40e71/nygsnCKmo9.lottie" background="transparent" style={{ height: "30px", width: "30px" }}></dotlottie-player>
+                    <dotlottie-player src="https://lottie.host/e507fe75-1154-4f7a-8bac-fb19f3a40e71/nygsnCKmo9.lottie" background="transparent"></dotlottie-player>
                   </div>
                 </div>
 

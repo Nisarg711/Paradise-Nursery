@@ -89,7 +89,7 @@ const signup = () => {
                             <input type="password" onChange={handlechange} placeholder='Enter Your Password' name="password" id="" />
                         </div>
                     </div>
-                    <div className="options">
+                    <div className="options2">
                         <div className="signin">
                             <button className='btn2' value="Sign Up" onClick={handleregister}>
                                 {begin ? <DotLottieReact src="https://lottie.host/a537d24a-b75f-49d2-b989-9663fc8d8c67/ElKzzvk4iJ.lottie" loop style={{ height: "32px", width: "32px" }}
@@ -97,7 +97,7 @@ const signup = () => {
                                 Sign up</button>
 
                         </div>
-                        <div className="create">
+                        <div className="create2">
                             <a href="/login"   style={{color:'gray'}} target='_blank'>Already have an account? Click here</a>
                         </div>
                     </div>

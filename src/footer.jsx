@@ -50,7 +50,7 @@ const footer = (p) => {
        <div className="footproduct">
         <div className="foothead">
           <h4>Our Products</h4>
-          <hr />
+          <hr style={{width:'100%'}} />
           <ul style={{listStyle:'none', paddingLeft:'0rem'}}>
 
             <li>Plants by Type</li>
@@ -64,7 +64,7 @@ const footer = (p) => {
       <div className="footlinks">
         <div className="foothead">
           <h4>Useful Links</h4>
-          <hr />
+          <hr style={{width:'100%'}} />
         </div>
         <ul style={{listStyle:'none', paddingLeft:'0rem'}}>
           <li><a href="">About Us</a></li>
