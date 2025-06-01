@@ -61,16 +61,9 @@ const updatelocalstorage=(temp)=>{
 }
 
   const handledelete=(ele)=>{
-  setorderd2(()=>{
-   let temp= ordered2.filter((e)=>{
-    console.log("checking ",ele.name);
-    return ele.name!==e.name;
-  })
-    updatelocalstorage(temp);
-    return temp;
-  }
-);
-   toast.success('Item removed from the cart!!', {
+
+    setTimeout(() => {
+     toast('Item removed from the cart!!', {
 position: "top-center",
 autoClose: 1500,
 hideProgressBar: false,
@@ -81,6 +74,17 @@ progress: undefined,
 theme: "light",
 
 });
+}, 0);
+
+  setorderd2(()=>{
+   let temp= ordered2.filter((e)=>{
+    console.log("checking ",ele.name);
+    return ele.name!==e.name;
+  })
+    updatelocalstorage(temp);
+    return temp;
+  }
+);
   }
 
   async function handlecheckout(){

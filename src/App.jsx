@@ -95,6 +95,7 @@ function App() {
   
     useEffect(()=>{
         fetchdetails();
+        console.log("ITS IMP: ",loggedin);
     },[])
 
   return (

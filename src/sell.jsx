@@ -59,8 +59,8 @@ reader.onload=async function(){
     if(reader.result!=="")
     {
         let arr2=reader.result.split(",");
-        console.log("Arr is: ",arr2);
-          await setDoc(doc(db,"Plants",usr.uid),{
+      
+    await setDoc(doc(db,"Plants",usr.uid),{
     name:data.pname,
     price:data.pprice,
     data:arr2[1]
