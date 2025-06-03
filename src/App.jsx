@@ -20,12 +20,14 @@ import { ordercontext } from './context/context'
 import { logcontext } from './context/context'
 import { wishcontext } from './context/context'
 import { checkoutcontext } from './context/context'
+import { reviewcontext } from './context/context'
 function App() {
   const [cart, setcart] = useState(0);
   const [ordered,setorderd]=useState([]);
   const [checkout,setcheckout]=useState([]);
   const [loggedin,setloggedin]=useState(null);
   const [wishlist,setwishlist]=useState([]);
+  const [reviewlist,setreviewlist]=useState([]);
   const router=createBrowserRouter([
     {
       path:'/',
@@ -88,6 +90,13 @@ function App() {
               console.log("USer has ordered: ",doc3.data().orders);
               setcheckout(doc3.data().orders);
             }
+            const ref4=doc(db,"reviews",uid);
+            let doc4=await getDoc(ref4);
+            if(doc4.exists())
+            {
+              console.log("USer has Reviews: ",doc4.data().reviews);
+              setreviewlist(doc4.data().reviews);
+            }
           }
             
         })
@@ -100,6 +109,7 @@ function App() {
 
   return (
     <> 
+          <reviewcontext.Provider value={{reviewlist,setreviewlist}}>
           <checkoutcontext.Provider value={{checkout,setcheckout}}>
           <wishcontext.Provider value={{wishlist,setwishlist}}>
           <ordercontext.Provider value={{ordered,setorderd}}>
@@ -111,6 +121,7 @@ function App() {
           </ordercontext.Provider>
           </wishcontext.Provider>
           </checkoutcontext.Provider>
+           </reviewcontext.Provider>
     </>
   )
 }

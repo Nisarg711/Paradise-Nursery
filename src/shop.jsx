@@ -11,7 +11,7 @@ import { getDocs,collection,arrayUnion,arrayRemove } from 'firebase/firestore';
 import Nav from "./nav"
 import Footer from './footer'
 import { countercontext, ordercontext } from './context/context';
-import { wishcontext } from './context/context';
+import { wishcontext,reviewcontext } from './context/context';
 const shop = () => {
      const {
       register,
@@ -22,18 +22,26 @@ const shop = () => {
    const [show, setShow] = useState(false);
       const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
+       const [show2, setShow2] = useState(false);
+      const handleClose2 = () => setShow2(false);
+    const handleShow2 = () => setShow2(true);
+
   const [wishurl,setwishurl]=useState("https://cdn.lordicon.com/nvsfzbop.json");
   const [ordered,setorderd]=useState([]);
   const [cart,setcart]=useState(0);
   const {wishlist,setwishlist}=useContext(wishcontext);
+  const {reviewlist,setreviewlist}=useContext(reviewcontext);
   const [plants,setplants]=useState([]);
   const {loggedin,setloggedin}=useContext(logcontext);
   const [checklogin,setchecklogin]=useState(false);
   const [checki,setcheck]=useState(false);
+  const [reviewplant,setreviewplant]=useState();
   const ref=useRef(null);
-  const submitform=async()=>{
-    handleClose();
-  }
+  const [detail,setdetail]=useState();
+  const [info,setinfo]=useState();
+useEffect(()=>{
+console.log("details is: ",detail);
+},[detail])
 async function delay(d) {
   return new Promise((res,rej)=>{
     setTimeout(() => {
@@ -48,7 +56,7 @@ async function delay(d) {
  let ref=await getDocs(collection(db,"Plants"));
 
   ref.forEach((doc)=>{
-  setplants(prev => [...prev, { name: doc.data().name, data: doc.data().data,status:false,price:doc.data().price,qty:1}]);
+  setplants(prev => [...prev, { name: doc.data().name, data: doc.data().data,status:false,price:doc.data().price,qty:1,info:doc.data().information}]);
   })} 
   func();
  },[])
@@ -119,16 +127,6 @@ useEffect(() => {
   }
 }, [plants]);
 
-const handlereview=()=>{
-   const usr=auth.currentUser;
-  if(!usr)
-  {
-    alert('You must Log in to add a review!!');
-    return;
-  }
-
-}
-
 async function handlewish(e,ele){
   const usr=auth.currentUser;
   if(!usr)
@@ -157,9 +155,6 @@ if(e.target.src==="https://cdn.lordicon.com/nvsfzbop.json")
   await setDoc(doc(db,"wishlist",usr.uid),{
     wishlist:[...wishlist,ele]
   });
-
- 
-
 }
 else
 {
@@ -188,6 +183,37 @@ theme: "light",
  } 
 }
 
+  const submitform=async(data)=>{
+    handleClose();
+    const usr=auth.currentUser;
+    console.log("Received Data is: ",data, "for ",reviewplant);
+    setreviewlist([...reviewlist,{
+       user:usr.uid,
+      plant_reviewed: reviewplant.name,
+      plant_image: reviewplant.data
+    }])
+    await setDoc(doc(db,"reviews",usr.uid),{
+     reviews:[...reviewlist,{
+       user:usr.uid,
+      plant_reviewed: reviewplant.name,
+      plant_image: reviewplant.data
+    }]
+    })
+    
+    setTimeout(() => {
+    toast('Review Submitted Successfully!!', {
+    position: "top-right",
+    autoClose: 1500,
+    hideProgressBar: false,
+    closeOnClick: false,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+    theme: "light",
+    });
+    }, 0);
+  }
+  
 
 useEffect(()=>{
   console.log("Wishlist is: ",wishlist);
@@ -256,14 +282,21 @@ transition="Bounce"
                   if(loggedin)
                   {
                     handleShow();
+                    setreviewplant(ele);
                    return;
                   }
                   alert("You Must log in to add a review!!");
                   
                   }}  className='rev btn btn-secondary'>Add a review</button>
+                  <button type='button' className='rev btn btn-secondary' onClick={()=>{
+                    handleShow2();
+                    setinfo(ele.info);
+                    setdetail({ele:ele,idx:idx});
+                  }}>More</button>
               </div>
+             
                {
-                      <Modal
+        <Modal
         show={show}
         onHide={handleClose}
         backdrop="static"
@@ -296,15 +329,45 @@ transition="Bounce"
       
         </Modal.Body>
   
-      </Modal>
-
-                  
+      </Modal>                  
       }
             </div>
           </div>
           )
         })
         
+      }
+       { detail?
+        <Modal
+        show={show2}
+        onHide={handleClose2}
+        backdrop="static"
+        keyboard={false}
+      >
+        <Modal.Header closeButton>
+          <Modal.Title>Find the details Here 💡</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <div className="detailpage">
+            <div className="leftdetail">
+          <div className="img2">
+              <img src={"data:image/png;base64," + detail.ele.data} alt="" />
+            </div>
+            </div>
+            <div className="rightdetail">
+            <p>{info}</p>
+            </div>
+          </div>
+         <div className="add">
+                <button type="button" onClick={()=>{
+                  handleorder(idx)
+}} className="addbtn btn btn-danger">Add to cart</button>
+              </div>
+      
+        </Modal.Body>
+  
+      </Modal>:<></>
+
       }
 
        </div>

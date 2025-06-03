@@ -20,12 +20,15 @@ const filename=entry;
 const filepath=folder + "/" +entry;
 const data=await fs.readFile(filepath,{encoding:'base64'});
 const name=filename.split(".")[0];
+const data2=await fs.readFile("./src/backend" + "/" +name + ".txt","utf8");
+
 await setDoc(doc(db,"Plants",String(idx)),{
 
     name:name,
     path:filepath,
     data:data,
-    price:10
+    price:10,
+    information: data2
 })
 });
 
