@@ -259,7 +259,7 @@ transition="Bounce"
     src={wishurl}
     onClick={(e)=>{handlewish(e,ele)}}
     trigger="hover"
-    style={{left:'-10px',top:'20px'}}>
+   >
 </lord-icon>
 <img src={"data:image/png;base64," + ele.data} alt="" /></div>
             <div className="content2">

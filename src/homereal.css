@@ -1,0 +1,156 @@
+/* 
+.homeheading{
+    position: absolute;
+    top: 20%;
+}
+.homecontent{
+    position: absolute;
+    top: 30%;
+    font-size: 30px;
+}
+
+.homeheading h1{
+    color: wheat;
+    font-size: 50px;
+  font-family: "Zeyada", cursive;
+  font-weight: 400;
+  font-style: normal;
+  animation: homehead 1.5s;
+}
+@keyframes homehead{
+    from{
+        opacity: 0%;
+    }
+    to{
+        opacity: 100%;
+    }
+}
+
+.homecontent p{
+    font-size: 25px;
+    font-family: "Caveat", cursive;
+  font-optical-sizing: auto;
+   animation: homecontent 2s;
+}
+@keyframes homecontent{
+    from{
+        opacity: 0%;
+        transform: translateY(100%);
+    }
+    to{
+        opacity: 100%;
+        transform: translateY(0%)
+    }
+}
+.homebtn{
+    justify-content: center;
+    display: flex;
+    position: relative;
+    top: 80%;
+}
+    .pic > lord-icon {
+        height: 25px;
+        width: 25px;
+    }
+.homepage{
+    left: 5%;
+    width: 50%;
+    position: absolute;
+    height: 100vh;
+}
+.homebtn button{
+     animation: homecontent 2s;
+}
+.homebtn button:hover{
+    cursor: pointer;
+    background:gray;
+}
+@media screen and (max-width:1070px)
+{ 
+    .homeheading{
+        top:0%;
+    }
+
+}
+@media screen and (max-width:750px)
+{ 
+    .homecontent{
+        top:20%;
+    }
+
+}
+
+@media screen and (max-width:615px)
+{ 
+    .homeheading h1{
+        font-size: 35px;
+    }
+     .homecontent{
+        top:10%;
+    }
+
+}
+@media screen and (max-width:530px){
+    .homepage{
+        width: 75%;
+    }
+    
+}
+@media screen and (max-width:400px){
+    .homepage{
+        width: 95%;
+    }
+    
+}
+
+@media screen and (max-width:385px){
+    .homepage p{
+       font-size: 20px;
+    }
+    .homebtn{
+        width: 30%;
+    }
+    
+} */
+ .logos{
+    align-items: center;
+    font-size: 10px;
+ }
+ .cart{
+    cursor: pointer;
+ }
+.homeheading{   
+     gap: 2%;
+    position: relative;
+    top: 15%;
+}
+.border{
+    border: 1px solid black;
+}
+.logoimg img{
+        height: 35px;
+}
+.searchbar{
+        width: 85%;
+}
+.searchlogo{
+    background-color: yellowgreen;
+    border: 1px solid;
+}
+.searchbar input{
+    width: 100%;
+    padding: 5px;
+}
+.carousel  img{
+filter: brightness(50%);
+object-fit: cover;
+    height: 500px;
+    width: 100%;
+}
+.carousel {
+    position: relative;
+    top: 20%;
+}
+.carousel-caption{
+    top: 40%;
+}
