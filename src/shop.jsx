@@ -255,7 +255,7 @@ transition="Bounce"
             <div className={`box ${idx%2?'leftani':'rightani'}`} key={idx}>
 
             <div className="pic">
-                            <lord-icon
+    <lord-icon
     src={wishurl}
     onClick={(e)=>{handlewish(e,ele)}}
     trigger="hover"

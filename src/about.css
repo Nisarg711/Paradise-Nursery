@@ -1,0 +1,14 @@
+.abcontent{
+    margin-top: 3%;
+    padding-left: 20px;
+    font-weight: 400;
+}
+
+.carousel-item.active {
+    display: grid;
+ grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+}
+.abitems{
+ display: grid;
+ grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+}

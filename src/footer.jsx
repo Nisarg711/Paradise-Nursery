@@ -67,7 +67,7 @@ const footer = (p) => {
           <hr style={{width:'100%'}} />
         </div>
         <ul style={{listStyle:'none', paddingLeft:'0rem'}}>
-          <li><a href="">About Us</a></li>
+          <li><a href="/about">About Us</a></li>
           <li> <p style={{cursor:'pointer',margin:'0rem',textDecoration:'underline'}}>
             <button style={{background:'none',border:'none',textDecoration:'underline'}} onClick={handleShow}>
                Contact us

@@ -12,7 +12,7 @@ import { Search,ShoppingCart } from 'lucide-react';
 const home = () => {
   const handleDragStart = (e) => e.preventDefault();
 const items = [
-	<img src="./new8.jpeg" onDragStart={handleDragStart} role="presentation" alt='1'/>,
+	<img src="./new8.jpeg"  onDragStart={handleDragStart} role="presentation" alt='1'/>,
 	<img src="./cover2.jpeg" onDragStart={handleDragStart} role="presentation" alt='1'/>,
 	<img src="./cover3.jpg" onDragStart={handleDragStart} role="presentation" alt='1'/>,
 ];
@@ -46,7 +46,7 @@ const items = [
        {/* <AliceCarousel autoPlay={true} mouseTracking items={items} autoPlayInterval={1000} infinite={true} /> */}
       <Carousel activeIndex={index} onSelect={handleSelect}>
       <Carousel.Item interval={1000} >
-       	<img src="./new8.jpeg"/>
+       	<img  className='carimg' src="./new8.jpeg"/>
         <Carousel.Caption>
           <h3>Welcome To Paradise Nursery</h3>
           <p>Your one-stop destination for a vibrant collection of plants and flowers that bring life and beauty to any space.</p>
@@ -54,7 +54,7 @@ const items = [
         </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item>
-       	<img src="./cover2.jpeg"/>
+       	<img className='carimg' src="./cover2.jpeg"/>
         <Carousel.Caption>
           <h3>A Real Paradise!!!</h3>
           <p>we believe in nurturing nature and helping you create your own green paradise—right at home. Explore our selection and let your garden dreams take root!
@@ -63,7 +63,7 @@ const items = [
         </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item>
-        	<img src="./cover3.jpg"/>
+        	<img className='carimg' src="./cover3.jpg"/>
         <Carousel.Caption>
           <h3>Visit Our Shop</h3>
           <p>
@@ -76,7 +76,7 @@ const items = [
       </Carousel.Item>
     </Carousel>
 
-    <Footer style={{top:'100vh'}}/>
+    <Footer style={{top:'12vh'}}/>
     </div>
   )
 }
