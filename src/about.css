@@ -4,7 +4,7 @@
     font-weight: 400;
 }
 
-.carousel-item.active {
+.carousel-item.active.temp {
     display: grid;
  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
 }
