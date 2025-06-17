@@ -522,3 +522,8 @@ position: absolute;
         gap: 3%;
     display: flex;
 }
+@media (min-width: 1200px) {
+    .h2, h2 {
+        font-size: 1.5rem;
+    }
+}

@@ -9,6 +9,7 @@ import Profile from "./profile"
 import Login from "./login"
 import Signup from './signup'
 import About from './about'
+import Page from './explore/page'
 import './logsin.css'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
@@ -64,6 +65,9 @@ function App() {
      {
       path:'/about',
       element:<About/>
+    },{
+      path:'/page',
+      element:<Page/>
     }
 
   ])

@@ -44,7 +44,7 @@ const items = [
       </div>
       </div>
        {/* <AliceCarousel autoPlay={true} mouseTracking items={items} autoPlayInterval={1000} infinite={true} /> */}
-      <Carousel activeIndex={index} onSelect={handleSelect}>
+      <Carousel className='carhome' activeIndex={index} onSelect={handleSelect}>
       <Carousel.Item interval={1000} >
        	<img  className='carimg' src="./new8.jpeg"/>
         <Carousel.Caption>
@@ -59,7 +59,8 @@ const items = [
           <h3>A Real Paradise!!!</h3>
           <p>we believe in nurturing nature and helping you create your own green paradise—right at home. Explore our selection and let your garden dreams take root!
 </p>
-<Button>About us</Button>
+<Button onClick={()=>{
+        window.open("/about","_blank");}}>About us</Button>
         </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item>

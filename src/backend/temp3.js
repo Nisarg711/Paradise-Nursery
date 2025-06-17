@@ -13,21 +13,21 @@ app.get('/',async (req,res)=>{
     console.log("Request came");
     res.send("Hello World");
    let array=[];
-    for (let pg = 1; pg <10; pg++) {
+    for (let pg = 1; pg <5; pg++) {
        
-    const response = await fetch(`https://perenual.com/api/v2/species-list?key=sk-S2UM684f0d81774f711020&page=${pg}`);
+    const response = await fetch(`https://perenual.com/api/v2/species-list?key=sk-LjlD68503df1e585911029&page=${pg}`);
     if(response.ok)
     {
     const data2=await response.json() 
-    array.concat(data2.data);
+    array=array.concat(data2.data);
     }
     else
     {
        
         console.log("There is some error while fetching!!!");
          console.log(response);
-    }
-    console.log("Array is:", array);
+    } 
+    console.log("Array is: ",array);
     await sleep(2500);
     }
     console.log("done");

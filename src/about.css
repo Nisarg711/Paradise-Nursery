@@ -12,3 +12,7 @@
  display: grid;
  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
 }
+.carousel-item.active .box img{
+    right: 0%;
+    margin-top:40px;
+}

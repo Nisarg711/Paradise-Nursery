@@ -6,6 +6,7 @@ import Button from 'react-bootstrap/Button';
 import Carousel from 'react-bootstrap/Carousel';
 import Footer from './footer'
 import "./about.css"
+import { CarouselCaption, CarouselItem } from 'react-bootstrap';
 const about = () => {
   const [wishurl,setwishurl]=useState("https://cdn.lordicon.com/nvsfzbop.json");
   const [plant1,setplant1]=useState([]);
@@ -106,7 +107,8 @@ useEffect(()=>{
 }} className="addbtn btn btn-danger">Add to cart</button>
               </div>
               <div className="review">
-                  <button style={{width:'100%'}} type='button' className='rev btn btn-secondary'>Go to shop page</button>
+                  <button style={{width:'100%'}} type='button' onClick={()=>{
+        window.open("/shop","_blank");}}  className='rev btn btn-secondary'>Go to shop page</button>
               </div>
             </div>
           </div>
@@ -145,7 +147,8 @@ useEffect(()=>{
 }} className="addbtn btn btn-danger">Add to cart</button>
               </div>
               <div className="review">
-                  <button style={{width:'100%'}} type='button' className='rev btn btn-secondary'>Go to shop page</button>
+                  <button style={{width:'100%'}} type='button' onClick={()=>{
+        window.open("/shop","_blank");}}  className='rev btn btn-secondary'>Go to shop page</button>
               </div>
             </div>
           </div>
@@ -157,7 +160,13 @@ useEffect(()=>{
 
 
     </Carousel.Item> 
-
+    <CarouselItem interval={1500}>
+           	<img  className='carimg' src="./new8.jpeg"/>
+      <CarouselCaption>
+       <h3 style={{color:'black'}}> <Button variant="warning"  onClick={()=>{
+        window.open("/shop","_blank");}}>View More!!!</Button></h3> 
+      </CarouselCaption>
+    </CarouselItem>
     </Carousel>
     <div className="check" style={{position:'relative',top:'10vh'}}>
       <button type="button" onClick={()=>{
