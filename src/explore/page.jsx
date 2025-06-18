@@ -72,7 +72,6 @@ const page = () => {
               <li><SquareActivity style={{height:'15px'}}/>Care level:</li>
                <li><Flower2 style={{height:'15px'}}/>Flowers:</li>
              <li><DoorClosed style={{height:'15px'}}/>Indoor Plant:</li>
-   
             </ul>
           </div>
            <div className="list2" style={{width:'50%'}}>
@@ -82,7 +81,6 @@ const page = () => {
               <li><Leaf style={{height:'15px'}}/>Leaf:</li>
                <li><Apple  style={{height:'15px'}}/>Fruits:</li>
                 <li><BriefcaseMedical style={{height:'15px'}}/>Medicinal:</li>
-
             </ul>
           </div>
           </div>
