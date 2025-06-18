@@ -10,8 +10,8 @@ import { DotLottieReact } from '@lottiefiles/dotlottie-react';
 import { getDocs,collection,arrayUnion,arrayRemove } from 'firebase/firestore';
 import Nav from "./nav"
 import Footer from './footer'
-import { countercontext, ordercontext } from './context/context';
-import { wishcontext,reviewcontext } from './context/context';
+import { countercontext, ordercontext} from './context/context';
+import { wishcontext,reviewcontext,newplantcontext } from './context/context';
 const shop = () => {
      const {
       register,
@@ -33,6 +33,7 @@ const shop = () => {
   const {reviewlist,setreviewlist}=useContext(reviewcontext);
   const [plants,setplants]=useState([]);
   const {loggedin,setloggedin}=useContext(logcontext);
+  const {newplant,setnewplant}=useContext(newplantcontext);
   const [checklogin,setchecklogin]=useState(false);
   const [checki,setcheck]=useState(false);
   const [reviewplant,setreviewplant]=useState();

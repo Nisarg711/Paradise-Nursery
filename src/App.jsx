@@ -1,6 +1,6 @@
 import { useState,useEffect } from 'react'
 import { db } from './backend/firebase'
-import { getDoc,doc } from 'firebase/firestore'
+import { getDoc,doc, getDocs, collection } from 'firebase/firestore'
 import { auth } from './backend/firebase'
 import Sell from './sell'
 import Home from "./home"
@@ -22,7 +22,7 @@ import { ordercontext } from './context/context'
 import { logcontext } from './context/context'
 import { wishcontext } from './context/context'
 import { checkoutcontext } from './context/context'
-import { reviewcontext } from './context/context'
+import { reviewcontext,newplantcontext } from './context/context'
 function App() {
   const [cart, setcart] = useState(0);
   const [ordered,setorderd]=useState([]);
@@ -30,6 +30,7 @@ function App() {
   const [loggedin,setloggedin]=useState(null);
   const [wishlist,setwishlist]=useState([]);
   const [reviewlist,setreviewlist]=useState([]);
+  const [newplant,setnewplant]=useState([]);
   const router=createBrowserRouter([
     {
       path:'/',
@@ -110,12 +111,20 @@ function App() {
             
         })
     }
-  
+  async function newfetch(){
+   const newref=await getDocs(collection(db,"plants2"));
+  newref.forEach((doc)=>{
+   setnewplant(prev=> [...prev,{common_name:doc.data().common_name,other_name:doc.data().other_name[0],scientific_name:doc.data().scientific_name[0],url:doc.data().default_image}]);
+  })
+}
     useEffect(()=>{
         fetchdetails();
-        console.log("ITS IMP: ",loggedin);
+        newfetch();
+        console.log("Plant array new: ",newplant);
     },[])
-
+useEffect(()=>{
+          console.log("Plant array new: ",newplant);
+},[newplant])
   return (
     <> 
           <reviewcontext.Provider value={{reviewlist,setreviewlist}}>
@@ -124,7 +133,10 @@ function App() {
           <ordercontext.Provider value={{ordered,setorderd}}>
           <countercontext.Provider value={{cart,setcart}}>
           <logcontext.Provider value={{loggedin,setloggedin}}>
-          <RouterProvider router={router}/>
+             <reviewcontext.Provider value={{newplant,setnewplant}}>
+                    <RouterProvider router={router}/>
+             </reviewcontext.Provider>
+  
           </logcontext.Provider>  
           </countercontext.Provider>
           </ordercontext.Provider>
