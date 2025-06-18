@@ -2,10 +2,12 @@ import React from 'react'
 import Footer from '../footer'
 import './plant.css'
 import { useState,useEffect,useRef } from 'react'
-import { Lightbulb,RefreshCcwDot,ArrowUpWideNarrow,SquareActivity,Droplet,Sun,Leaf,Flower2,Apple,DoorClosed,BriefcaseMedical} from 'lucide-react';
+import { Lightbulb,RefreshCcwDot,ArrowUpWideNarrow,SquareActivity,Droplet,Sun,Leaf,Flower2,Apple,DoorClosed,BriefcaseMedical,Share2} from 'lucide-react';
 import { CarouselCaption, CarouselItem } from 'react-bootstrap';
 import Button from 'react-bootstrap/Button';
 import Carousel from 'react-bootstrap/Carousel';
+  import React from 'react';
+  import { ToastContainer, toast } from 'react-toastify';
 const page = () => {
 
      const [index, setIndex] = useState(0);
@@ -49,7 +51,11 @@ const page = () => {
     </Carousel>
     <div className="cardinner">
          <div className="plantname">
-        <h3>XYZ</h3>
+        <h3>XYZ <Share2 style={{cursor:'pointer'}} onClick={()=>{
+          let url=window.location.href;
+          navigator.clipboard.writeText(url);
+  
+        }}/></h3>
     </div>
     <div className="scientific">
         <h4>pqrs</h4>
