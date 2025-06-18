@@ -2,11 +2,10 @@ import React from 'react'
 import Footer from '../footer'
 import './plant.css'
 import { useState,useEffect,useRef } from 'react'
-import { Lightbulb,RefreshCcwDot,ArrowUpWideNarrow,SquareActivity,Droplet,Sun,Leaf,Flower2,Apple,DoorClosed,BriefcaseMedical,Share2} from 'lucide-react';
+import { Lightbulb,RefreshCcwDot,ArrowUpWideNarrow,SquareActivity,Droplet,Sun,Leaf,Flower2,Apple,DoorClosed,BriefcaseMedical,Share2,Copy} from 'lucide-react';
 import { CarouselCaption, CarouselItem } from 'react-bootstrap';
 import Button from 'react-bootstrap/Button';
 import Carousel from 'react-bootstrap/Carousel';
-  import React from 'react';
   import { ToastContainer, toast } from 'react-toastify';
 const page = () => {
 
@@ -16,6 +15,19 @@ const page = () => {
   };
   return (
     <div className='page'>
+      <ToastContainer
+position="top-right"
+autoClose={2000}
+hideProgressBar={false}
+newestOnTop={false}
+closeOnClick={false}
+rtl={false}
+pauseOnFocusLoss
+draggable
+pauseOnHover
+theme="light"
+
+/>
       <div className="plantcard">
        <Carousel activeIndex={index} onSelect={handleSelect} style={{borderRadius: '20px'}}>
       <Carousel.Item interval={1000}style={{borderRadius: '20px'}} >
@@ -50,11 +62,21 @@ const page = () => {
       </Carousel.Item>
     </Carousel>
     <div className="cardinner">
+      
          <div className="plantname">
-        <h3>XYZ <Share2 style={{cursor:'pointer'}} onClick={()=>{
+        <h3>XYZ <Copy style={{cursor:'pointer',position:'relative',left:'10px'}} onClick={()=>{
           let url=window.location.href;
           navigator.clipboard.writeText(url);
-  
+            toast.success('Link Copied to Clipboard!!', {
+position: "top-right",
+autoClose: 2000,
+hideProgressBar: false,
+closeOnClick: false,
+pauseOnHover: true,
+draggable: true,
+progress: undefined,
+theme: "light",
+});
         }}/></h3>
     </div>
     <div className="scientific">
