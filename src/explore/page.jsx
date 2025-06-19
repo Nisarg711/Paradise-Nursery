@@ -76,13 +76,13 @@ theme: "light",
         <p>{deepdetail[currid-1].scientific_name[0]}</p>
     </div>
     <div className="scientific">
-        {/* <h4>Also Known As - {deepdetail[currid-1].other_name[0]}</h4> */}
+        <h4>Also Known As - {deepdetail[currid-1].other_name[0]}</h4>
     </div>
     <div className="specific">
         <div className="description">
           <p style={{fontSize:'19px',display:'flex'}}><Lightbulb />You must know!!</p>
           <div className="sub">
-          <p>{deepdetail[currid-1].description}</p>
+          {/* <p>{deepdetail[currid-1].description}</p> */}
           </div>
         </div>
 
