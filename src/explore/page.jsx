@@ -82,7 +82,7 @@ theme: "light",
         <div className="description">
           <p style={{fontSize:'19px',display:'flex'}}><Lightbulb />You must know!!</p>
           <div className="sub">
-          {/* <p>{deepdetail[currid-1].description}</p> */}
+          <p>{deepdetail[currid-1].description}</p>
           </div>
         </div>
 
