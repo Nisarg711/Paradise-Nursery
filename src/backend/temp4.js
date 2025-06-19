@@ -13,9 +13,9 @@ app.get('/',async (req,res)=>{
     console.log("Request came");
     res.send("Hello World");
    let array=[];
-    for (let id = 1; id<=50; id++) {
+    for (let id = 99; id<=120; id++) {
        
-    const response = await fetch(`https://perenual.com/api/v2/species/details/${id}?key=sk-zISi6852edc86c31711070`);
+    const response = await fetch(`https://perenual.com/api/v2/species/details/${id}?key=mIUF6852eb4f7823a11029`);
     if(response.ok)
     {
     const data2=await response.json() 

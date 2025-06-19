@@ -11,8 +11,6 @@ import Signup from './signup'
 import About from './about'
 import Page from './explore/page'
 import './logsin.css'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
 import Footer from './footer'
 import Shop from './shop'
@@ -22,7 +20,7 @@ import { ordercontext } from './context/context'
 import { logcontext } from './context/context'
 import { wishcontext } from './context/context'
 import { checkoutcontext } from './context/context'
-import { reviewcontext,newplantcontext } from './context/context'
+import { reviewcontext,newplantcontext,detailcontext } from './context/context'
 function App() {
   const [cart, setcart] = useState(0);
   const [ordered,setorderd]=useState([]);
@@ -31,6 +29,7 @@ function App() {
   const [wishlist,setwishlist]=useState([]);
   const [reviewlist,setreviewlist]=useState([]);
   const [newplant,setnewplant]=useState([]);
+  const [deepdetail,setdeepdetail]=useState([]);
   const router=createBrowserRouter([
     {
       path:'/',
@@ -67,7 +66,7 @@ function App() {
       path:'/about',
       element:<About/>
     },{
-      path:'/page',
+      path:'/page/:plantid',
       element:<Page/>
     }
 
@@ -116,15 +115,16 @@ function App() {
   newref.forEach((doc)=>{
    setnewplant(prev=> [...prev,{common_name:doc.data().common_name,other_name:doc.data().other_name[0],scientific_name:doc.data().scientific_name[0],url:doc.data().default_image}]);
   })
+  const newref2=await getDocs(collection(db,"deepdetail"));
+ newref2.forEach((doc)=>{
+    setdeepdetail(prev=>[...prev,doc.data()]);
+  })
 }
     useEffect(()=>{
         fetchdetails();
         newfetch();
-        console.log("Plant array new: ",newplant);
     },[])
-useEffect(()=>{
-          console.log("Plant array new: ",newplant);
-},[newplant])
+
   return (
     <> 
           <reviewcontext.Provider value={{reviewlist,setreviewlist}}>
@@ -133,9 +133,13 @@ useEffect(()=>{
           <ordercontext.Provider value={{ordered,setorderd}}>
           <countercontext.Provider value={{cart,setcart}}>
           <logcontext.Provider value={{loggedin,setloggedin}}>
-             <reviewcontext.Provider value={{newplant,setnewplant}}>
+             <newplantcontext.Provider value={{newplant,setnewplant}}>
+              <detailcontext.Provider value={{deepdetail,setdeepdetail}}>
+
                     <RouterProvider router={router}/>
-             </reviewcontext.Provider>
+                        </detailcontext.Provider>
+                       </newplantcontext.Provider>
+         
   
           </logcontext.Provider>  
           </countercontext.Provider>
