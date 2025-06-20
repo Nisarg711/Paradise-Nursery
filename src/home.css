@@ -141,6 +141,7 @@ gap: 5px;
 }
 
 .box img{
+    top: 10px;
     right: 4%;
     border-radius: 5px;
     margin-top: 20px;

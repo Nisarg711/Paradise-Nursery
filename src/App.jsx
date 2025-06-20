@@ -14,6 +14,7 @@ import './logsin.css'
 import './App.css'
 import Footer from './footer'
 import Shop from './shop'
+import Shop2 from './shop2'
 import {createBrowserRouter, RouterProvider } from 'react-router-dom'
 import { countercontext } from './context/context'
 import { ordercontext } from './context/context'
@@ -65,9 +66,14 @@ function App() {
      {
       path:'/about',
       element:<About/>
-    },{
+    },
+    {
       path:'/page/:plantid',
       element:<Page/>
+    },
+    {
+      path:'/shop2',
+      element:<Shop2/>
     }
 
   ])
