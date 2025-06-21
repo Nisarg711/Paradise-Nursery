@@ -64,7 +64,7 @@ const updatelocalstorage=(temp)=>{
 
     setTimeout(() => {
      toast('Item removed from the cart!!', {
-position: "top-center",
+position: "top-right",
 autoClose: 1500,
 hideProgressBar: false,
 closeOnClick: false,
@@ -79,7 +79,7 @@ theme: "light",
   setorderd2(()=>{
    let temp= ordered2.filter((e)=>{
     console.log("checking ",ele.name);
-    return ele.name!==e.name;
+    return ele.common_name!==e.common_name;
   })
     updatelocalstorage(temp);
     return temp;
