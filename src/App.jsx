@@ -31,6 +31,7 @@ function App() {
   const [reviewlist,setreviewlist]=useState([]);
   const [newplant,setnewplant]=useState([]);
   const [deepdetail,setdeepdetail]=useState([]);
+  
   const router=createBrowserRouter([
     {
       path:'/',
@@ -83,12 +84,12 @@ function App() {
           if(usr)
           {
         const uid=usr.uid;
-            console.log("UID IS ",uid);
+            // console.log("UID IS ",uid);
             const ref=doc(db,"userdetails",uid);
             let docs=await getDoc(ref);
             if(docs.exists())
             {
-                console.log(docs.data());
+                // console.log(docs.data());
                 setloggedin(docs.data());
             }
             const ref2=doc(db,"wishlist",uid);
@@ -102,14 +103,14 @@ function App() {
             let doc3=await getDoc(ref3);
             if(doc3.exists())
             {
-              console.log("USer has ordered: ",doc3.data().orders);
+              // console.log("USer has ordered: ",doc3.data().orders);
               setcheckout(doc3.data().orders);
             }
             const ref4=doc(db,"reviews",uid);
             let doc4=await getDoc(ref4);
             if(doc4.exists())
             {
-              console.log("USer has Reviews: ",doc4.data().reviews);
+              // console.log("USer has Reviews: ",doc4.data().reviews);
               setreviewlist(doc4.data().reviews);
             }
           }
@@ -119,7 +120,8 @@ function App() {
   async function newfetch(){
    const newref=await getDocs(collection(db,"plants2"));
   newref.forEach((doc)=>{
-   setnewplant(prev=> [...prev,{common_name:doc.data().common_name,other_name:doc.data().other_name[0],scientific_name:doc.data().scientific_name[0],url:doc.data().default_image}]);
+   setnewplant(prev=> [...prev,{common_name:doc.data().common_name,other_name:doc.data().other_name[0],scientific_name:doc.data().scientific_name[0],url:doc.data().default_image,id:doc.data().id}]);
+
   })
   const newref2=await getDocs(collection(db,"deepdetail"));
  newref2.forEach((doc)=>{
@@ -130,7 +132,12 @@ function App() {
         fetchdetails();
         newfetch();
     },[])
-
+    useEffect(()=>{
+      deepdetail.sort((a,b)=>a.id-b.id)
+    },[deepdetail])
+        useEffect(()=>{
+      newplant.sort((a,b)=>a.id-b.id)
+    },[newplant])
   return (
     <> 
           <reviewcontext.Provider value={{reviewlist,setreviewlist}}>

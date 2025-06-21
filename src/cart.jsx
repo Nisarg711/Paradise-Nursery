@@ -114,6 +114,7 @@ theme: "light",
   },[ordered2]);
 
   useEffect(()=>{
+    console.log("Update is: ",updated);
     let sum=0;
     updated.map((ele,idx)=>{
       sum+=ele.price * (ele.qty);
@@ -151,10 +152,10 @@ theme: "light",
               <div className="box2" key={idx}>
                 <div className="lefti">
                   <div className="img">
-                    <img src={"data:image/png;base64," + ele.data} alt="" />
+                    <img src={ele.url.original_url} alt="" />
                   </div>
                   <div className="content3">
-                    <div className="name"><p>{ele.name}</p></div>
+                    <div className="name"><p>{ele.common_name}</p></div>
                     <div className="price"><p>Price: {ele.price}</p></div>
                   </div>
                 </div>

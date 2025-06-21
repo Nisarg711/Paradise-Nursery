@@ -41,9 +41,10 @@ const shop = () => {
   const ref=useRef(null);
   const [detail,setdetail]=useState();
   const [info,setinfo]=useState();
-useEffect(()=>{
-console.log("details is: ",detail);
-},[detail])
+  const [issorted,setissorted]=useState(false);
+    useEffect(()=>{
+      deepdetail.sort((a,b)=>a.id-b.id)
+    },[deepdetail])
 async function delay(d) {
   return new Promise((res,rej)=>{
     setTimeout(() => {
@@ -63,35 +64,39 @@ async function delay(d) {
   func();
  },[])
 
+
  function find(ele)
 {
   let arr2=[...ordered];
-  let idx=ordered.findIndex(element=>element.name==ele.name);
+  console.log("Inside find and ordered: ",ordered);
+  let idx=ordered.findIndex(element=>element.common_name==ele.common_name);
   if(idx!=-1)
   {
-  arr2[idx].qty++;
+     console.log("Inside still and not -1 and index: ",idx);
   return arr2;
 }
+  console.log("Inside still and index: ",idx);
 return -1;
 }
 
  const handleorder=async (idx)=>{
-  setTimeout(() => {
-    toast.success('Item added into the cart!!!', {
-      position: "top-right",
-      autoClose: 1500,
-      hideProgressBar: false,
-      closeOnClick: false,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-      theme: "light",
-    });
-  }, 0);
+  // setTimeout(() => {
+  //   toast.success('Item added into the cart!!!', {
+  //     position: "top-right",
+  //     autoClose: 1500,
+  //     hideProgressBar: false,
+  //     closeOnClick: false,
+  //     pauseOnHover: true,
+  //     draggable: true,
+  //     progress: undefined,
+  //     theme: "light",
+  //   });
+  // }, 0);
   let arr=[];
-setplants(()=>{
+  console.log("Index called is: ",idx);
+setnewplant((prev)=>{
   
-  arr=[...plants];
+  arr=[...prev];
   let cnt=localStorage.getItem("cart")?parseInt(localStorage.getItem("cart")):0;
   
     const ret=find(arr[idx]);
@@ -105,6 +110,7 @@ setplants(()=>{
     else
     {
       setorderd(ret);
+      console.log("CHECK ",ret);
       localStorage.setItem("ordered",JSON.stringify(ret));
     }
   localStorage.setItem("cart",cnt);
@@ -119,19 +125,18 @@ setplants(()=>{
     
     setorderd(JSON.parse(arr));
     setcart(parseInt(localStorage.getItem("cart")));
-    console.log("checking somethingggg: ",parseInt(localStorage.getItem("cart")));
   }
  },[])
 
 useEffect(() => {
   if (newplant.length ==120 && ref.current) {
     ref.current.style.display = 'none';
+    setissorted(true);
   }
-
-  console.log("suspect is: ",newplant[11]);
 }, [newplant]);
 
 async function handlewish(e,ele){
+    console.log("Wish called: ",ele);
   const usr=auth.currentUser;
   if(!usr)
   {
@@ -154,10 +159,10 @@ if(e.target.src==="https://cdn.lordicon.com/nvsfzbop.json")
   }, 0);
 
   e.target.src="https://cdn.lordicon.com/ewmfucya.json";
-  setwishlist([...wishlist,ele]);
+  setwishlist([...wishlist,ele.id]);
   
   await setDoc(doc(db,"wishlist",usr.uid),{
-    wishlist:[...wishlist,ele]
+    wishlist:[...wishlist,ele.id]
   });
 }
 else
@@ -178,7 +183,7 @@ theme: "light",
 
   e.target.src="https://cdn.lordicon.com/nvsfzbop.json"
    let arr=wishlist.filter((element)=>{
-    return element!==ele;
+    return element!==ele.id;
   })
     await setDoc(doc(db,"wishlist",usr.uid),{
     wishlist:arr
@@ -250,11 +255,11 @@ transition="Bounce"
         <div className="con">
         <div className="list">
           
-      { newplant.length==120?
+      { newplant.length==120 && issorted?
         newplant.map((ele,idx)=>{
           return(
             
-            <>
+            <div key={idx}>
             {
                 ele.url?    <div className={`box ${idx%2?'leftani':'rightani'}`} key={idx}>
 
@@ -271,7 +276,7 @@ transition="Bounce"
                 <p style={{ marginBottom: "0rem" }}>$ 10</p>
               </div>
               <div className="name">
-                <p>{ele.common_name}</p>
+                <p>{ele.common_name} {ele.id}</p>
               </div>
               <div className="ratings">
 
@@ -295,7 +300,7 @@ transition="Bounce"
                   <button type='button' className='rev btn btn-secondary' onClick={()=>{
                     handleShow2();
                     setinfo(()=>{ return deepdetail.length!=0?deepdetail[idx].description:""});
-                    setdetail({ele:ele,idx:idx});
+                    setdetail({ele:ele,idx:ele.id});
                   }}>More</button>
               </div>
              
@@ -338,7 +343,7 @@ transition="Bounce"
             </div>
           </div>:<></>
             }
-            </>
+            </div>
           )
         }):<></>
         
@@ -367,7 +372,7 @@ transition="Bounce"
           </div>
          <div className="add">
                 <button type="button" onClick={()=>{
-                let nav="/page/"+((detail.idx)+1).toString();
+                let nav="/page/"+(detail.idx).toString();
                  window.open(nav,"_blank");
 }} className="addbtn btn btn-danger">Dive Deep!!!</button>
               </div>

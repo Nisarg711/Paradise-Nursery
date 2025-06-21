@@ -5,7 +5,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import { deleteUser, EmailAuthProvider, reauthenticateWithCredential } from 'firebase/auth';
 import { useContext,useState } from 'react';
 import {remove,ref} from 'firebase/database'
-import { wishcontext,checkoutcontext } from './context/context';
+import { wishcontext,checkoutcontext,detailcontext,newplantcontext} from './context/context';
 import { db } from './backend/firebase';
 import { getDoc,doc,deleteDoc, setDoc } from 'firebase/firestore'
 import './profile.css'
@@ -16,7 +16,10 @@ const profile = () => {
       const {wishlist,setwishlist}=useContext(wishcontext);
       const {checkout,setcheckout}=useContext(checkoutcontext);
       const [display,setdisplay]=useState('f');
+       const [sort,setsort]=useState(false);
       const {loggedin,setloggedin}=useContext(logcontext);
+      const {deepdetail,setdeepdetail}=useContext(detailcontext);
+      const {newplant,setnewplant}=useContext(newplantcontext);
       const [questions,setquestions]=useState([
         "What types of plants do you sell?","Are flowering plants available all year round?","Can you help me choose the right plant for my home or office?","Do you provide guidance on how to care for the plants?","Do you sell pots and decorative planters as well?","Is home delivery available for plants and other items?","Can I place a bulk order for events or corporate gifting?","What payment options do you accept?"
       ])
@@ -74,6 +77,7 @@ const profile = () => {
     }
     
     useEffect(()=>{
+      console.log("wish: ",wishlist);
       async function firewish()
       {
         let usr=auth.currentUser;
@@ -92,7 +96,11 @@ const profile = () => {
     }
     useEffect(()=>{
     },[display])
-
+           useEffect(()=>{
+      newplant.sort((a,b)=>a.id-b.id);
+      if(newplant.length!=0)
+        setsort(true);
+    },[newplant])
   return (
     <>
         <ToastContainer
@@ -186,7 +194,7 @@ Sell a Plant
           )
          
         })
-        :((display==='w')?
+        :((display==='w' && newplant.length!=0 && sort)?
          
           wishlist.map((ele, idx) => {
             return (
@@ -194,11 +202,11 @@ Sell a Plant
               <div className="box21" key={idx}>
                 <div className="lefti">
                   <div className="img2">
-                    <img src={"data:image/png;base64," + ele.data} alt="" />
+                    <img src={newplant[ele-1].url.original_url} alt="" />
                   </div>
                   <div className="content3">
-                    <div className="name"><p>{ele.name}</p></div>
-                    <div className="price"><p>Price: ${ele.price}</p></div>
+                    <div className="name"><p>{newplant[ele-1].common_name}</p></div>
+                    <div className="price"><p>Price: ${ele}</p></div>
                   </div>
                 </div>
 
