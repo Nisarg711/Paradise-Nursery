@@ -273,7 +273,7 @@ transition="Bounce"
 <img src={ele?.url?.original_url || ele?.url?.medium_url || "fallback.jpg"} alt="Plant" /></div>
             <div className="content2">
                      <div className="price">
-                <p style={{ marginBottom: "0rem" }}>$ 10</p>
+                <p style={{ marginBottom: "0rem" }}>$ {ele.id}</p>
               </div>
               <div className="name">
                 <p>{ele.common_name} {ele.id}</p>

@@ -412,13 +412,14 @@ position: absolute;
 
 @media screen and (max-width:575px){
        .box{
-        height: 200px;
-        width: 140px;
+        height: 325px;
+        width: 210px;
        }
        .box img{
-        width: 80px;
+        width: 115px;
         height: 90px;
        }
+  
        .addbtn{
         font-size: 13px;
        }
@@ -430,10 +431,13 @@ position: absolute;
        }
        .list{
         overflow: scroll;
-        gap: 2%;
+        gap: 15px;
        }
        .links{
         top: 20px;
+       }
+       .content2 .name p{
+        font-size: 16px;
        }
 }
 
@@ -465,28 +469,11 @@ position: absolute;
         }
 }
 @media screen and (max-width:450px){
-    .pic > lord-icon{
-            height: 20px;
-    width: 15px;
+        .box {
+        height: 320px;
+        width: 180px;
     }
-    .addbtn{
-        font-size: 10px;
-    }
-    .box{
-        font-size: 12px;
-        height: 145px;
-        width: 120px;
-       }
-       .content2{
-        top: 15%;
-    position: relative;
-       }
-       .box img{
-        top: 30%;
-        width: 60%;
-        height: 50px;
-        object-fit: cover;
-       }
+  
 }
 
 @media screen and (max-width:575px){
@@ -500,6 +487,9 @@ position: absolute;
     }
     .content3{
         font-size: 15px;
+    }
+    .list{
+        grid-template-columns: 0fr 0fr;
     }
 }
 @media screen and (max-width:380px){
