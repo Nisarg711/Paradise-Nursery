@@ -117,7 +117,8 @@ theme: "light",
     console.log("Update is: ",updated);
     let sum=0;
     updated.map((ele,idx)=>{
-      sum+=ele.price * (ele.qty);
+      // sum+=ele.price * (ele.qty);
+      sum+=ele.id;
     })
     console.log("sum found is: ",sum);
     setamount(sum);
@@ -156,7 +157,7 @@ theme: "light",
                   </div>
                   <div className="content3">
                     <div className="name"><p>{ele.common_name}</p></div>
-                    <div className="price"><p>Price: {ele.price}</p></div>
+                    <div className="price"><p>Price: {ele.id}</p></div>
                   </div>
                 </div>
 
