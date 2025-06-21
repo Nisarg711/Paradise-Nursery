@@ -259,7 +259,7 @@ transition="Bounce"
         newplant.map((ele,idx)=>{
           return(
             
-            <div key={idx}>
+            <>
             {
                 ele.url?    <div className={`box ${idx%2?'leftani':'rightani'}`} key={idx}>
 
@@ -343,7 +343,7 @@ transition="Bounce"
             </div>
           </div>:<></>
             }
-            </div>
+            </>
           )
         }):<></>
         
