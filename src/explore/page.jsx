@@ -126,7 +126,7 @@ theme: "light",
           
           <div className="sub" style={{display:'flex'}}>
           <div className="list1" style={{width:'50%'}}>
-            <ul style={{listStyle:'none'}}>
+            <ul style={{listStyle:'none', paddingLeft:'0rem'}}>
               <li><RefreshCcwDot style={{height:'15px'}} />Cycle: {deepdetail[index2].cycle}</li>
               <li><ArrowUpWideNarrow style={{height:'15px'}} />Growth Rate: {deepdetail[index2].growth_rate}</li>
               <li><SquareActivity style={{height:'15px'}}/>Care level:{deepdetail[index2].care_level}</li>

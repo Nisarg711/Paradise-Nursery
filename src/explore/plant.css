@@ -37,3 +37,13 @@
     display: flex;
     gap: 1.5rem;
 }
+@media screen and (max-width:450px) {
+    .list1,.list2{
+            font-size: 12px;
+    }
+}
+@media screen and (max-wdith:400px) {
+    .sub{
+        font-size: 12px;
+    }
+}
