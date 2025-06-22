@@ -1,10 +1,12 @@
 import React from 'react'
 import Footer from '../footer'
 import './plant.css'
+import { doc,getDoc } from 'firebase/firestore';
+import { db } from '../backend/firebase';
 import { DotLottieReact } from '@lottiefiles/dotlottie-react';
 import { useState,useEffect,useRef } from 'react'
 import { useParams } from 'react-router-dom'
-import { Lightbulb,RefreshCcwDot,ArrowUpWideNarrow,SquareActivity,Droplet,Sun,Leaf,Flower2,Apple,DoorClosed,BriefcaseMedical,Share2,Copy} from 'lucide-react';
+import { Lightbulb,RefreshCcwDot,ArrowUpWideNarrow,SquareActivity,Droplet,Sun,Leaf,Flower2,Apple,DoorClosed,BriefcaseMedical,Share2,Copy,Scissors} from 'lucide-react';
 import { CarouselCaption, CarouselItem } from 'react-bootstrap';
 import { newplantcontext,detailcontext } from '../context/context';
 import Button from 'react-bootstrap/Button';
@@ -19,9 +21,26 @@ const page = () => {
      const {newplant,setnewplant}=useContext(newplantcontext);
      const [index2,setindex2]=useState(-1);
      const {deepdetail,setdeepdetail}=useContext(detailcontext);
+     const [watersun,setwatersun]=useState([]);
      const handleSelect = (selectedIndex) => {
     setIndex(selectedIndex);
   };
+   async function detailfetch() {
+       if(plantid)
+    {
+      let ref=doc(db,"watersun",plantid);
+      let docref=await getDoc(ref);
+      if(docref.exists())
+      {
+        console.log("Water sun ",docref.data());
+        setwatersun(docref.data());
+      }
+    }
+    }
+  useEffect(()=>{
+   
+   detailfetch();
+  },[plantid])
   useEffect(()=>{
           console.log("Detail array new: ",deepdetail);
 },[deepdetail])
@@ -59,7 +78,7 @@ theme="light"
 
 />
  {
-      deepdetail.length!=0 && index2>=0 && sort?
+      deepdetail.length!=0 && index2>=0 && sort &&  watersun.section.length!=0?
       <div className="plantcard">
        <Carousel activeIndex={index} onSelect={handleSelect} style={{borderRadius: '20px'}}>
       <Carousel.Item interval={1000}style={{borderRadius: '20px'}} >
@@ -126,6 +145,25 @@ theme: "light",
           </div>
           </div>
         </div>
+         <div className="more">
+            {/* <div className="sub water">
+              <h4><Droplet style={{height:'15px'}}/>Watering</h4>
+              <p></p>
+            </div>
+             <div className="sub Sunlight">
+              <h4><Sun style={{height:'15px'}}/>Sunlight</h4>
+            </div> */}
+            {
+              watersun.section.map((ele,idx)=>{
+                return(
+                  <div className='sub'>
+                    <h4>{ele.type=="watering"?<Droplet style={{height:'15px'}}/>:ele.type=="sunlight"?<Sun style={{height:'15px'}}/>:<Scissors style={{height:'15px'}} />}{ele.type}</h4>
+                    <p>{ele.description}</p>
+                  </div>
+                )
+              })
+            }
+          </div>
     </div>
     </div>
    

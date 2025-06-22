@@ -13,14 +13,15 @@ app.get('/',async (req,res)=>{
     console.log("Request came");
     res.send("Hello World");
    let array=[];
-   //This One is for deep detail
-    for (let id = 99; id<=120; id++) {
+ 
+    for (let id = 1; id<=50; id++) {
     
-    const response = await fetch(`https://perenual.com/api/v2/species/details/${id}?key=sk-x10v6857f65dcee0911020`);
+    const response = await fetch(`https://perenual.com/api/species-care-guide-list?key=sk-x10v6857f65dcee0911020&species_id=${id}`);
     if(response.ok)
     {
     const data2=await response.json() 
-    array=array.concat(data2);
+    console.log("data2: ",data2.data);
+    array=array.concat(data2.data);
     }
     else
     {
@@ -32,7 +33,7 @@ app.get('/',async (req,res)=>{
     }
     console.log("done");
      const arr2=array.map(async(ele,idx)=>{
-       await setDoc(doc(db,"deepdetail",String(ele.id)),ele);
+       await setDoc(doc(db,"watersun",String(ele.species_id)),ele);
     })
  
 

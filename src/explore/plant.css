@@ -32,3 +32,8 @@
    padding: 10px;
    font-size: 14px;
 }
+.more{
+    flex-direction: column;
+    display: flex;
+    gap: 1.5rem;
+}
