@@ -133,6 +133,11 @@ theme: "light",
       <input type="text" placeholder="Enter the Plant Name" {...register("pname",{required:{value:true,message:"This field is required"}})} />
       {errors.pname && <div className='message'>{errors.pname.message}</div>}
       <hr />
+      <input type="text" placeholder='Enter a brief description about the plant' {...register("pdisc",{required:{value:true,message:"This field is required"}})} />
+      {errors.pdisc && <div className='message'>{errors.pdisc.message}</div>}
+      <hr />
+    <input type="checkbox" name="" id="" value={"yes"} /> <span>Yes</span>
+    <hr />
       <input type="number" placeholder="Enter the price (in Dollars)" {...register("pprice",{required:{value:true,message:"This field is required"}})}/>
       {errors.pprice && <div className='message'>{errors.pprice.message}</div>}
       <hr />

@@ -130,8 +130,8 @@ theme: "light",
               <li><RefreshCcwDot style={{height:'15px'}} />Cycle: {deepdetail[index2].cycle}</li>
               <li><ArrowUpWideNarrow style={{height:'15px'}} />Growth Rate: {deepdetail[index2].growth_rate}</li>
               <li><SquareActivity style={{height:'15px'}}/>Care level:{deepdetail[index2].care_level}</li>
-               <li><Flower2 style={{height:'15px'}}/>Flowers: {deepdetail[index2].flowers}</li>
-             <li><DoorClosed style={{height:'15px'}}/>Indoor Plant: {deepdetail[index2].indoor}</li>
+               <li><Flower2 style={{height:'15px'}}/>Flowers: {deepdetail[index2].flowers?"✅":"❌"}</li>
+             <li><DoorClosed style={{height:'15px'}}/>Indoor Plant: {deepdetail[index2].indoor?"✅":"❌"}</li>
             </ul>
           </div>
            <div className="list2" style={{width:'50%'}}>

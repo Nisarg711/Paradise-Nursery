@@ -80,18 +80,18 @@ return -1;
 }
 
  const handleorder=async (idx)=>{
-  // setTimeout(() => {
-  //   toast.success('Item added into the cart!!!', {
-  //     position: "top-right",
-  //     autoClose: 1500,
-  //     hideProgressBar: false,
-  //     closeOnClick: false,
-  //     pauseOnHover: true,
-  //     draggable: true,
-  //     progress: undefined,
-  //     theme: "light",
-  //   });
-  // }, 0);
+  setTimeout(() => {
+    toast.success('Item added into the cart!!!', {
+      position: "top-right",
+      autoClose: 1500,
+      hideProgressBar: false,
+      closeOnClick: false,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+    });
+  }, 0);
   let arr=[];
   console.log("Index called is: ",idx);
 setnewplant((prev)=>{
