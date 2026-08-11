@@ -5,6 +5,7 @@ import Modal from 'react-bootstrap/Modal';
 import { ToastContainer, toast } from 'react-toastify';
 import { useForm } from 'react-hook-form';
 import './footer.css'
+// This component renders the website footer with product links, useful links, contact information, and a contact modal.
 const footer = (p) => {
      const {
       register,
@@ -118,7 +119,6 @@ const footer = (p) => {
       </Modal>
 
 
-            
             
             
             
